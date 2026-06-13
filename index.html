@@ -86,6 +86,12 @@
       border: 2px solid rgba(125, 211, 252, 0.35); box-shadow: 0 14px 28px rgba(14, 165, 233, 0.18);
       background: linear-gradient(135deg, rgba(15,23,42,0.9), rgba(8,15,28,0.95));
     }
+    .profile-photo {
+      width: 140px; height: 140px; border-radius: 24px; object-fit: cover; object-position: center 12%;
+      border: 1px solid rgba(125, 211, 252, 0.35); box-shadow: 0 18px 32px rgba(14, 165, 233, 0.15);
+      background: linear-gradient(135deg, rgba(15,23,42,0.9), rgba(8,15,28,0.95));
+      flex: 0 0 auto;
+    }
     .avatar-note { color: #e5eefb; font-size: .95rem; line-height: 1.4; }
     .tag-row { display: flex; flex-wrap: wrap; gap: 8px; }
     .tag { border: 1px solid rgba(125, 211, 252, 0.18); border-radius: 999px; padding: 8px 10px; font-size: .88rem; color: #e5eefb; background: rgba(8, 15, 28, 0.96); }
@@ -95,6 +101,8 @@
     .meter i { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #38bdf8, #a78bfa); }
 
     .section { margin-top: 18px; }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 650ms ease, transform 650ms ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
     .section-head { display: flex; justify-content: space-between; gap: 12px; align-items: end; margin-bottom: 10px; }
     .section-head h2 { margin: 0; font-size: 1.18rem; }
     .section-head p { margin: 0; color: var(--muted); font-size: .98rem; }
@@ -145,12 +153,28 @@
         <nav class="nav-links">
           <a href="#about">About</a>
           <a href="#focus">What I Do</a>
-          <a href="#stack">Tech Stack</a>
+          <a href="#stack">Cloud tools</a>
           <a href="#contact">Contact</a>
         </nav>
       </header>
 
-      <section class="hero">
+      <section id="profile" class="section reveal">
+        <article class="contact-card" style="display:flex; flex-wrap:wrap; gap:18px; align-items:center; justify-content:space-between;">
+          <div style="display:flex; align-items:center; gap:16px; flex:1 1 420px; min-width:280px;">
+            <img class="profile-photo" src="https://raw.githubusercontent.com/wallitsecurity-ui/gustavoriveraportfolio/master/gustavo.png" alt="Gustavo Rivera" />
+            <div style="min-width:0;">
+              <h2 style="margin:0 0 6px; font-size:1.15rem;">Gustavo Rivera</h2>
+              <p style="margin:0 0 8px; color:#cbd5e1; line-height:1.55;">I am a junior cloud-focused profile building practical AWS experience, cloud troubleshooting skills, and a strong interest in secure, reliable IT environments.</p>
+            </div>
+          </div>
+          <p style="margin:0; color:#dbeafe; flex:0 1 260px; text-align:right; line-height:1.6;">
+            Email: <a href="mailto:wall.itsecuirty@gmail.com">wall.itsecuirty@gmail.com</a><br />
+            LinkedIn: <a href="https://www.linkedin.com/in/gustavo-rivera-31a2373b9/" target="_blank" rel="noopener noreferrer">gustavo-rivera-31a2373b9</a>
+          </p>
+        </article>
+      </section>
+
+      <section class="hero reveal">
         <article class="panel hero-intro">
           <div class="eyebrow">Junior AWS Cloud Troubleshooter</div>
           <h1>I build <span class="accent-line">scalable cloud solutions</span> that support business growth.</h1>
@@ -173,28 +197,24 @@
             <a class="btn btn-primary" href="#about">Explore my profile</a>
             <a class="btn btn-secondary" href="#contact">Connect with me</a>
           </div>
-        </article>
 
-        <aside class="panel hero-side">
-          <article class="mini-card">
-            <div class="avatar-wrap">
-              <img class="avatar" src="Downloads/gustavo.png" alt="Gustavo Rivera" />
-              <div class="avatar-note">Gustavo Rivera<br />Junior AWS Cloud Troubleshooter</div>
-            </div>
-            <p>Hands-on cloud troubleshooting, infrastructure design, and solutions that balance performance, security, and cost.</p>
-          </article>
-
-          <article class="mini-card">
+          <article class="mini-card" style="margin-top:14px;">
             <h3>Core AWS Stack</h3>
             <div class="tag-row">
               <span class="tag">EC2</span><span class="tag">S3</span><span class="tag">IAM</span><span class="tag">Lambda</span><span class="tag">CloudFormation</span><span class="tag">CloudWatch</span>
             </div>
           </article>
+        </article>
 
+        <aside class="panel hero-side">
+          <article class="mini-card">
+            <h3>Cloud focus</h3>
+            <p>Hands-on cloud troubleshooting, infrastructure design, and solutions that balance performance, security, and cost.</p>
+          </article>
         </aside>
       </section>
 
-      <section id="focus" class="section">
+      <section id="focus" class="section reveal">
         <div class="section-head">
           <div>
             <h2>What I’m doing</h2>
@@ -208,7 +228,7 @@
         </div>
       </section>
 
-      <section id="about" class="section grid-2">
+      <section id="about" class="section grid-2 reveal">
         <article class="story-card">
           <h2 style="margin-top:0; font-size:1.15rem;">About me</h2>
           <p>I am a Junior AWS Cloud Troubleshooter with a blend of business acumen and cloud technology. My background in Economics enables me to effectively align cloud solutions with organizational goals. I focus on infrastructure design, automation, and driving scalable, secure, and cost-effective solutions using AWS services.</p>
@@ -227,10 +247,10 @@
         </article>
       </section>
 
-      <section id="stack" class="section">
+      <section id="stack" class="section reveal">
         <div class="section-head">
           <div>
-            <h2>Tech stack & strengths</h2>
+            <h2>Cloud tools & strengths</h2>
             <p>Cloud-native tools and concepts that shape my work.</p>
           </div>
         </div>
@@ -241,7 +261,7 @@
         </div>
       </section>
 
-      <section id="badges" class="section">
+      <section id="badges" class="section reveal">
         <div class="section-head">
           <div>
             <h2>Certifications & badges</h2>
@@ -287,7 +307,7 @@
         </div>
       </section>
 
-      <section id="contact" class="section">
+      <section id="contact" class="section reveal">
         <article class="contact-card">
           <h2 style="margin-top:0; font-size:1.15rem;">Let’s build something reliable</h2>
           <p>I am open to cloud-focused opportunities where troubleshooting, automation, and business-aware infrastructure can create real value.</p>
@@ -297,7 +317,23 @@
         </article>
       </section>
 
-      <p class="footer-note">Professional AWS cloud profile • tailored for cloud, IT, and business-aligned opportunities</p>
     </main>
+    <script>
+      const revealItems = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12 });
+
+        revealItems.forEach((item) => revealObserver.observe(item));
+      } else {
+        revealItems.forEach((item) => item.classList.add('visible'));
+      }
+    </script>
   </body>
 </html>
