@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AWS Cloud Troubleshooter | Professional Landing Page</title>
+  <meta name="description" content="Professional cloud-focused landing page for an AWS Junior Cloud Troubleshooter with business and technical expertise." />
+  <style>
+    :root {
+      --bg: #030712;
+      --panel: rgba(7, 11, 17, 0.96);
+      --panel-soft: rgba(15, 23, 42, 0.9);
+      --line: rgba(148, 163, 184, 0.18);
+      --text: #eff6ff;
+      --muted: #cbd5e1;
+      --accent: #7dd3fc;
+      --accent-2: #a78bfa;
+      --good: #34d399;
+      --shadow: 0 24px 45px rgba(2, 6, 23, 0.55);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top, rgba(125, 211, 252, 0.08), transparent 18%),
+        radial-gradient(circle at right top, rgba(167, 139, 250, 0.08), transparent 22%),
+        linear-gradient(135deg, #020617 0%, #071120 45%, #020617 100%);
+    }
+
+    a { color: inherit; }
+
+    .page-shell { width: min(1220px, calc(100% - 24px)); margin: 0 auto; padding-bottom: 36px; }
+
+    .topbar {
+      display: flex; align-items: center; justify-content: space-between; gap: 14px;
+      padding: 18px 0 10px;
+      position: sticky; top: 0; z-index: 10;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(180deg, rgba(2, 6, 23, 0.95), rgba(2, 6, 23, 0.75));
+    }
+
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; font-size: .86rem; color: #dbeafe; }
+    .brand-mark { width: 12px; height: 12px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent-2)); box-shadow: 0 0 0 4px rgba(125, 211, 252, 0.08), 0 0 18px rgba(167, 139, 250, 0.25); }
+
+    .nav-links { display: flex; gap: 10px; flex-wrap: wrap; }
+    .nav-links a { color: var(--muted); text-decoration: none; padding: 9px 12px; border: 1px solid transparent; border-radius: 999px; font-size: .95rem; }
+    .nav-links a:hover { color: #fff; border-color: var(--line); background: rgba(15, 23, 42, 0.85); }
+
+    .hero { display: grid; grid-template-columns: 1.15fr .85fr; gap: 18px; align-items: stretch; margin-top: 8px; }
+    .panel { border: 1px solid var(--line); border-radius: 28px; background: linear-gradient(145deg, rgba(15, 23, 42, 0.94), rgba(8, 15, 28, 0.98)); box-shadow: var(--shadow); overflow: hidden; position: relative; }
+
+    .hero-intro { padding: 24px 24px 22px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; color: #dbeafe; text-transform: uppercase; letter-spacing: .25em; font-size: .76rem; font-weight: 800; margin-bottom: 12px; }
+    .eyebrow::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), #38bdf8); box-shadow: 0 0 0 4px rgba(125, 211, 252, 0.12); }
+
+    h1 { margin: 0 0 12px; font-size: clamp(2.2rem, 6vw, 4.1rem); line-height: 1.02; letter-spacing: -.04em; }
+    .accent-line { background: linear-gradient(135deg, #7dd3fc 0%, #c084fc 55%, #bfdbfe 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+
+    .lead { color: var(--muted); line-height: 1.65; font-size: 1.02rem; max-width: 640px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 16px; }
+    .chip { border: 1px solid rgba(125, 211, 252, 0.18); border-radius: 999px; padding: 8px 10px; background: rgba(8, 15, 28, 0.96); color: #e5eefb; font-size: .9rem; }
+
+    .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 12px; }
+    .metric-card { border: 1px solid var(--line); border-radius: 18px; padding: 12px; background: rgba(8, 15, 28, 0.92); }
+    .metric-card strong { display: block; font-size: 1.15rem; color: #fff; margin-bottom: 4px; }
+    .metric-card span { color: var(--muted); font-size: .92rem; }
+
+    .cta-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; padding: 11px 14px; font-weight: 700; text-decoration: none; border: 1px solid transparent; transition: transform 120ms ease, box-shadow 120ms ease; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { color: #04111d; background: linear-gradient(135deg, #38bdf8, #818cf8 50%, #a78bfa); box-shadow: 0 14px 25px rgba(56, 189, 248, 0.14); }
+    .btn-secondary { color: #e5eefb; background: rgba(15, 23, 42, 0.95); border-color: var(--line); }
+
+    .hero-side { display: flex; flex-direction: column; gap: 12px; padding: 14px; background: linear-gradient(180deg, rgba(15, 23, 42, 0.97), rgba(8, 15, 28, 0.99)); }
+    .mini-card { border: 1px solid var(--line); border-radius: 20px; padding: 14px; background: linear-gradient(145deg, rgba(8, 15, 28, 0.97), rgba(15, 23, 42, 0.98)); }
+    .mini-card h3 { margin: 0 0 6px; font-size: 1rem; }
+    .mini-card p { margin: 0; color: var(--muted); line-height: 1.5; font-size: .95rem; }
+    .avatar-wrap { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+    .avatar {
+      width: 94px; height: 94px; border-radius: 50%; object-fit: cover; object-position: center 15%;
+      border: 2px solid rgba(125, 211, 252, 0.35); box-shadow: 0 14px 28px rgba(14, 165, 233, 0.18);
+      background: linear-gradient(135deg, rgba(15,23,42,0.9), rgba(8,15,28,0.95));
+    }
+    .avatar-note { color: #e5eefb; font-size: .95rem; line-height: 1.4; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { border: 1px solid rgba(125, 211, 252, 0.18); border-radius: 999px; padding: 8px 10px; font-size: .88rem; color: #e5eefb; background: rgba(8, 15, 28, 0.96); }
+    .meter-wrap { margin-top: 8px; }
+    .label-row { display: flex; justify-content: space-between; color: #dbeafe; font-size: .92rem; margin-bottom: 6px; }
+    .meter { height: 8px; border-radius: 999px; background: linear-gradient(90deg, rgba(56, 189, 248, 0.12), rgba(167, 139, 250, 0.12)); overflow: hidden; }
+    .meter i { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #38bdf8, #a78bfa); }
+
+    .section { margin-top: 18px; }
+    .section-head { display: flex; justify-content: space-between; gap: 12px; align-items: end; margin-bottom: 10px; }
+    .section-head h2 { margin: 0; font-size: 1.18rem; }
+    .section-head p { margin: 0; color: var(--muted); font-size: .98rem; }
+
+    .grid-2 { display: grid; grid-template-columns: 1.1fr .9fr; gap: 16px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+
+    .story-card, .list-card, .contact-card { border: 1px solid var(--line); border-radius: 22px; padding: 16px; background: linear-gradient(145deg, rgba(15, 23, 42, 0.96), rgba(8, 15, 28, 0.99)); box-shadow: var(--shadow); }
+    .story-card p, .list-card li, .contact-card p { color: var(--muted); line-height: 1.6; }
+    .list-card ul { margin: 0; padding-left: 17px; }
+
+    .service-card { border: 1px solid var(--line); border-radius: 20px; padding: 14px; background: linear-gradient(145deg, rgba(8, 15, 28, 0.98), rgba(15, 23, 42, 0.96)); }
+    .service-card h3 { margin: 0 0 6px; font-size: 1rem; }
+    .service-card p { margin: 0; color: var(--muted); line-height: 1.55; font-size: .95rem; }
+
+    .stack-card { border: 1px solid var(--line); border-radius: 18px; padding: 14px; background: rgba(8, 15, 28, 0.95); }
+    .stack-card h3 { margin: 0 0 8px; font-size: 1rem; }
+    .stack-card p { margin: 0; color: var(--muted); font-size: .95rem; line-height: 1.55; }
+
+    .badges-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .badge-card {
+      border: 1px solid var(--line); border-radius: 20px; padding: 12px;
+      background: linear-gradient(145deg, rgba(8, 15, 28, 0.98), rgba(15, 23, 42, 0.96));
+      box-shadow: var(--shadow);
+    }
+    .badge-card a { text-decoration: none; color: inherit; display: block; }
+    .badge-card img {
+      width: 100%; max-width: 180px; display: block; margin: 0 auto 10px;
+      border-radius: 14px; background: #fff; padding: 6px;
+      border: 1px solid rgba(148, 163, 184, 0.18);
+    }
+    .badge-card strong { display: block; color: #eff6ff; font-size: .98rem; margin-bottom: 4px; }
+    .badge-card span { color: var(--muted); font-size: .92rem; line-height: 1.45; }
+
+    .contact-card strong { color: #fff; }
+    .contact-card a { color: #bfdbfe; text-decoration: none; }
+
+    .footer-note { margin-top: 16px; text-align: center; color: var(--muted); font-size: .92rem; }
+
+    @media (max-width: 1080px) { .hero, .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+    @media (max-width: 760px) { .topbar { align-items: flex-start; flex-direction: column; } .metrics { grid-template-columns: 1fr; } .nav-links { gap: 6px; } .hero-intro { padding: 18px; } }
+  </style>
+</head>
+  <body>
+    <main class="page-shell">
+      <header class="topbar">
+        <div class="brand"><span class="brand-mark"></span> AWS Cloud Troubleshooter</div>
+        <nav class="nav-links">
+          <a href="#about">About</a>
+          <a href="#focus">What I Do</a>
+          <a href="#stack">Tech Stack</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+
+      <section class="hero">
+        <article class="panel hero-intro">
+          <div class="eyebrow">Junior AWS Cloud Troubleshooter</div>
+          <h1>I build <span class="accent-line">scalable cloud solutions</span> that support business growth.</h1>
+          <p class="lead">I am a Junior AWS Cloud Troubleshooter with a blend of business acumen and cloud technology. My background in Economics enables me to align cloud solutions with organizational goals while focusing on infrastructure design, automation, and secure, cost-effective AWS services.</p>
+
+          <div class="chips">
+            <span class="chip">AWS Cloud</span>
+            <span class="chip">Infrastructure Design</span>
+            <span class="chip">Automation & IaC</span>
+            <span class="chip">Security & Cost Optimization</span>
+          </div>
+
+          <div class="metrics">
+            <div class="metric-card"><strong>Cloud</strong><span>Reliable AWS architecture and troubleshooting</span></div>
+            <div class="metric-card"><strong>Automation</strong><span>Efficient workflows, scripting, and deployment support</span></div>
+            <div class="metric-card"><strong>Business</strong><span>Technical execution aligned with organizational needs</span></div>
+          </div>
+
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#about">Explore my profile</a>
+            <a class="btn btn-secondary" href="#contact">Connect with me</a>
+          </div>
+        </article>
+
+        <aside class="panel hero-side">
+          <article class="mini-card">
+            <div class="avatar-wrap">
+              <img class="avatar" src="Downloads/gustavo.png" alt="Gustavo Rivera" />
+              <div class="avatar-note">Gustavo Rivera<br />Junior AWS Cloud Troubleshooter</div>
+            </div>
+            <p>Hands-on cloud troubleshooting, infrastructure design, and solutions that balance performance, security, and cost.</p>
+          </article>
+
+          <article class="mini-card">
+            <h3>Core AWS Stack</h3>
+            <div class="tag-row">
+              <span class="tag">EC2</span><span class="tag">S3</span><span class="tag">IAM</span><span class="tag">Lambda</span><span class="tag">CloudFormation</span><span class="tag">CloudWatch</span>
+            </div>
+          </article>
+
+        </aside>
+      </section>
+
+      <section id="focus" class="section">
+        <div class="section-head">
+          <div>
+            <h2>What I’m doing</h2>
+            <p>Professional, secure, and scalable cloud-focused capabilities.</p>
+          </div>
+        </div>
+        <div class="grid-3">
+          <article class="service-card"><h3>Infrastructure Design</h3><p>Building reliable AWS environments with best practices for availability, resilience, and growth.</p></article>
+          <article class="service-card"><h3>Automation & Cloud Operations</h3><p>Streamlining deployments and operations through scripting, IaC, and repeatable cloud workflows.</p></article>
+          <article class="service-card"><h3>Security & Cost Optimization</h3><p>Applying secure configurations and cost-aware architecture to support efficient, sustainable cloud operations.</p></article>
+        </div>
+      </section>
+
+      <section id="about" class="section grid-2">
+        <article class="story-card">
+          <h2 style="margin-top:0; font-size:1.15rem;">About me</h2>
+          <p>I am a Junior AWS Cloud Troubleshooter with a blend of business acumen and cloud technology. My background in Economics enables me to effectively align cloud solutions with organizational goals. I focus on infrastructure design, automation, and driving scalable, secure, and cost-effective solutions using AWS services.</p>
+          <p>I am committed to continuous learning, actively engaging in hands-on projects and certifications to refine my skills. My experience equips me to contribute to innovative cloud projects, bridging the gap between technical implementation and business strategy.</p>
+          <p>If you are seeking someone who understands both the technical landscape and its business implications, I am eager to collaborate and help your organization thrive in the cloud.</p>
+        </article>
+
+        <article class="list-card">
+          <h3 style="margin-top:0; font-size:1rem;">Why this profile stands out</h3>
+          <ul>
+            <li>I bring a strong willingness to learn and improve in AWS cloud environments.</li>
+            <li>I combine basic business understanding with growing technical cloud skills.</li>
+            <li>I am building practical experience through hands-on projects and certifications.</li>
+            <li>I aim to contribute with curiosity, reliability, and a real interest in cloud solutions.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="stack" class="section">
+        <div class="section-head">
+          <div>
+            <h2>Tech stack & strengths</h2>
+            <p>Cloud-native tools and concepts that shape my work.</p>
+          </div>
+        </div>
+        <div class="grid-3">
+          <article class="stack-card"><h3>AWS Core</h3><p>EC2, S3, IAM, Lambda, CloudWatch, Route 53, and cloud troubleshooting across core AWS services.</p></article>
+          <article class="stack-card"><h3>Automation</h3><p>Infrastructure as code, scripting, and reliable cloud practices that improve consistency and speed.</p></article>
+          <article class="stack-card"><h3>Business & Cloud</h3><p>Cloud solutions designed to support business goals with attention to security, scalability, and cost efficiency.</p></article>
+        </div>
+      </section>
+
+      <section id="badges" class="section">
+        <div class="section-head">
+          <div>
+            <h2>Certifications & badges</h2>
+            <p>Cloud learning milestones and hands-on achievements.</p>
+          </div>
+        </div>
+        <div class="badges-grid">
+          <article class="badge-card">
+            <a href="https://www.credly.com/badges/ab6796d9-3302-4588-b528-d9cf719eb50f/linked_in_profile" target="_blank" rel="noopener noreferrer">
+              <img src="https://images.credly.com/size/340x340/images/e51a8579-188d-4363-8ed1-12ad164ef57b/blob" alt="AWS Educate Introduction to Cloud 101 badge" />
+              <strong>AWS Educate Cloud 101</strong>
+              <span>Introduction to cloud computing concepts and AWS fundamentals.</span>
+            </a>
+          </article>
+          <article class="badge-card">
+            <a href="https://www.credly.com/badges/84bb71f3-62a0-4751-b49b-491a5eb2c18a/linked_in_profile" target="_blank" rel="noopener noreferrer">
+              <img src="https://images.credly.com/size/340x340/images/3b1b42e6-dfc2-492b-90df-8058096cb93d/blob" alt="AWS Educate Getting Started with Storage badge" />
+              <strong>AWS Educate Storage</strong>
+              <span>Foundations in cloud storage, data handling, and AWS storage services.</span>
+            </a>
+          </article>
+          <article class="badge-card">
+            <a href="https://www.credly.com/badges/9125693f-ff25-4d7c-afec-c96ac46c3040/linked_in_profile" target="_blank" rel="noopener noreferrer">
+              <img src="https://images.credly.com/size/340x340/images/7b08cc0e-064b-407d-b70e-323509c3e474/blob" alt="AWS Educate Getting Started with Compute badge" />
+              <strong>AWS Educate Compute</strong>
+              <span>Intro to compute services and AWS-based virtual environments.</span>
+            </a>
+          </article>
+          <article class="badge-card">
+            <a href="https://tryhackme.com/certificate/THM-19NGJVNCWT" target="_blank" rel="noopener noreferrer">
+              <img src="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-19NGJVNCWT.png" alt="TryHackMe certificate" />
+              <strong>TryHackMe Certificate</strong>
+              <span>Hands-on cyber security learning and foundational security skills.</span>
+            </a>
+          </article>
+          <article class="badge-card">
+            <a href="https://www.credly.com/badges/4555e814-50f3-4ddb-a8fc-baeb77a7a1b6/linked_in_profile" target="_blank" rel="noopener noreferrer">
+              <img src="https://images.credly.com/size/340x340/images/af8c6b4e-fc31-47c4-8dcb-eb7a2065dc5b/I2CS__1_.png" alt="Introduction to Cybersecurity badge" />
+              <strong>Introduction to Cybersecurity</strong>
+              <span>Cisco Networking Academy badge for foundational cybersecurity awareness.</span>
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <article class="contact-card">
+          <h2 style="margin-top:0; font-size:1.15rem;">Let’s build something reliable</h2>
+          <p>I am open to cloud-focused opportunities where troubleshooting, automation, and business-aware infrastructure can create real value.</p>
+          <p><strong>Email:</strong> <a href="mailto:wall.itsecuirty@gmail.com">wall.itsecuirty@gmail.com</a><br />
+          <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/gustavo-rivera-31a2373b9/" target="_blank" rel="noopener noreferrer">gustavo-rivera-31a2373b9</a><br />
+          <strong>Focus:</strong> AWS, cloud architecture, troubleshooting, automation, and cost-aware solutions.</p>
+        </article>
+      </section>
+
+      <p class="footer-note">Professional AWS cloud profile • tailored for cloud, IT, and business-aligned opportunities</p>
+    </main>
+  </body>
+</html>
